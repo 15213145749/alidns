@@ -87,18 +87,17 @@ public class Sample {
      * RecordId
      * RR
      * Type
+     * Value
      * @param args_
      * @throws Exception
      */
     public static void main(String[] args_) throws Exception {
-        String ip = get_ip();
-        System.out.println(ip);
         com.aliyun.alidns20150109.Client client = Sample.createClient(args_[0], args_[1]);
         UpdateDomainRecordRequest updateDomainRecordRequest = new UpdateDomainRecordRequest()
                 .setRecordId(args_[2])
                 .setRR(args_[3])
                 .setType(args_[4])
-                .setValue(ip);
+                .setValue(args_[5]);
         UpdateDomainRecordResponse resp = client.updateDomainRecord(updateDomainRecordRequest);
         com.aliyun.teaconsole.Client.log(com.aliyun.teautil.Common.toJSONString(TeaModel.buildMap(resp)));
     }

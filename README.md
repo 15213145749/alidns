@@ -11,13 +11,19 @@
 - 执行对应语言的构建及运行语句
 
 ## 执行步骤
+
+-Docker
+```sh
+docker run -it --rm 15213145749/alidns accessKeyId accessKeySecret RecordId RR Type $(curl http://www.3322.org/dyndns/getip)
+```
+
 下载的代码包，在根据自己需要更改代码中的参数和 AK 以后，可以在**解压代码所在目录下**按如下的步骤执行
 
 - Java
 *JDK 版本要求 1.8*
 ```sh
 mvn clean package
-java -jar target/sample-1.0.0-jar-with-dependencies.jar accessKeyId accessKeySecret RecordId RR Type
+java -jar target/sample-1.0.0-jar-with-dependencies.jar accessKeyId accessKeySecret RecordId RR Type Value
 ```
 
 - TypeScript
